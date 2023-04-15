@@ -22,7 +22,7 @@ export default function extension() {
     <div className="card card_1">
       <div className="date">
         11 June 2018
-                <span className="tv_ico"><img src={"https://cdn.marvel.com/content/2x/MLou2_Payoff_1-Sht_Online_DOM_v7_Sm.jpg"}/></span>
+                <span className="tv_ico"><img src={"http://www.cartaodental.com/nbase/image/pc.svg"}/></span>
       </div>
       <div className="content">
         <div className="title">
@@ -48,7 +48,7 @@ export default function extension() {
     <div className="card card_2">
  <div className="date">
         16 April 2019
-                <span className="tv_ico"><img src="https://cdn.marvel.com/content/2x/MLou2_Payoff_1-Sht_Online_DOM_v7_Sm.jpg"/></span>
+                <span className="tv_ico"><img src="http://www.cartaodental.com/nbase/image/pc.svg"/></span>
       </div>
       <div className="content">
         <div className="title">
