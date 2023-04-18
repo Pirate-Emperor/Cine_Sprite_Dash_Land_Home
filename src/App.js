@@ -35,10 +35,16 @@ import Home2 from './srcnl/pages/Home';
 import SignIn from './srcnl/pages/SignIn';
 import SignUp from './srcnl/pages/SignUp';
 import ResetPassword from './srcnl/pages/ResetPassword';
+
+
+// Auth
+import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
   const {darkMode} = useContext(DarkModeContext)
-  const [homeMode, setHomeMode] = useState(false);
-  const [landMode, setLandMode] = useState(true);
+  const [homeMode, setHomeMode] = useState(true);
+  const [landMode, setLandMode] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -60,6 +66,7 @@ function App() {
     (landMode)
     ?
     // <BrowserRouter>
+    <AuthContextProvider>
     <div className={darkMode ? "app dark" : "app"}>
       <Header2 darkMode={darkMode} 
           landMode={landMode}
@@ -73,16 +80,20 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
       </div>
-    // </BrowserRouter>
+      </AuthContextProvider>
+
     :
     (!homeMode)
-    ?<div  className={darkMode ? "app dark" : "app"}>
+    ?
+    <AuthContextProvider>
+    <div  className={darkMode ? "app dark" : "app"}>
     {/* <BrowserRouter> */}
     {/* <DarkModeContextProvider> */}
       <Routes>
         <Route path="/"> 
         <Route path="dash" element={<Home1 homeMode={homeMode}
-          setHomeMode={(obj) => setHomeMode(obj)}/>} />
+          setHomeMode={(obj) => setHomeMode(obj)}
+          setLandMode={(obj) => setLandMode(obj)}/>} />
         <Route path="login" element={<Login1/>}/>
         <Route path="users">
           <Route index element={<List homeMode={homeMode}
@@ -105,7 +116,9 @@ function App() {
       {/* </DarkModeContextProvider> */}
       {/* </BrowserRouter> */}
       </div>
+      </AuthContextProvider>
       :
+      <AuthContextProvider>
       <div className={darkMode ? "app dark" : "app"}>
         {/* <BrowserRouter> */}
       
@@ -133,6 +146,7 @@ function App() {
     </ThemeProvider>
     {/* </BrowserRouter> */}
     </div>
+    </AuthContextProvider>
   );
 }
 

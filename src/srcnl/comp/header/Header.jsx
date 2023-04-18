@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
-import { Link, useLocation } from 'react-router-dom';
-
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { UserAuth } from "../../../context/AuthContext";
 import './header.scss';
 
 import logo from '../../images/main_logo.png';
@@ -11,32 +11,55 @@ const headerNav = [
         display: 'Land',
         path: '/',
         onClick: true,
-        handle: "land"
+        handle: "land",
+        authChange: false,
         
     },
     {
         display: 'Home',
         path: '/home',
         onClick: true,
-        handle: "home"
+        handle: "home",
+        authChange: false,
     },
     {
         display: 'Dashboard',
         path: '/dash',
         onClick: true,
-        handle: "dash"
+        handle: "dash",
+        authChange: false,
     },
     {
         display: 'Sign In',
         path: '/signin',
         onClick: true,
-        handle: "land"
+        handle: "land",
+        authChange: true,
+        users: false,
     },
     {
         display: 'Sign Up',
         path: '/signup',
         onClick: true,
-        handle: "land"
+        handle: "land",
+        authChange: true,
+        users: false,
+    },
+    {
+        display: 'Account',
+        path: '/account',
+        onClick: true,
+        handle: "land",
+        authChange: true,
+        users: true,
+    },
+    {
+        display: 'Log Out',
+        path: '/',
+        onClick: true,
+        handle: "land",
+        authChange: true,
+        users: true,
     }
 ];
 
@@ -46,6 +69,8 @@ const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
     const headerRef = useRef(null);
 
     const active = headerNav.findIndex(e => e.path === pathname);
+    
+
     const homeClickHandler = () => {
         setHomeMode(true);
         setLandMode(false);
@@ -57,6 +82,19 @@ const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
     const landClickHandler = () => {
         setLandMode(true);
     };
+
+    const { user, logOut } = UserAuth();
+    const navigate = useNavigate();
+    const handleLogOut = async () => {
+        try {
+        await logOut();
+        homeClickHandler();
+        navigate("/");
+        }catch (error) {
+        console.log(error);
+        }
+    };
+
     const chooseHandler =(handle) => {
         if (handle==="home") return homeClickHandler
         else if (handle==="dash") return dashClickHandler
@@ -94,11 +132,28 @@ const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
                                 </Link>
                             </li>
                             :
+                            (!e.authChange)?
                             <li key={i} className={`${i === active ? 'active' : ''}`}>
                                 <Link to={e.path} onClick={chooseHandler(e.handle)}>
                                     {e.display}
                                 </Link>
                             </li>
+                            :
+                            user?.email?
+                            (!e.users)?
+                            <li key={i} className={`${i === active ? 'active' : ''}`}>
+                                <Link to={e.path} onClick={chooseHandler(e.handle)}>
+                                    {e.display}
+                                </Link>
+                            </li>
+                            : <></>
+                            :(e.users)?
+                            <li key={i} className={`${i === active ? 'active' : ''}`}>
+                                <Link to={e.path} onClick={chooseHandler(e.handle)}>
+                                    {e.display}
+                                </Link>
+                            </li>
+                            : <> </>
                         ))
                     }
                     

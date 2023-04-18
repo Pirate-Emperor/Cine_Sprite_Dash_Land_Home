@@ -10,11 +10,11 @@ import { useContext} from "react";
 import { DarkModeContext} from "../../context/darkModeContext";
 import { Link } from "react-router-dom";
 
-const Navbar = ({homeMode, setHomeMode }) => {
+const Navbar = ({homeMode, setHomeMode, setLandMode }) => {
 
   const {dispatch} = useContext(DarkModeContext)
   const homeClickHandler = () => {
-    setHomeMode(!homeMode);
+    setHomeMode(true);
   };
   return (
     <div className="navbar">

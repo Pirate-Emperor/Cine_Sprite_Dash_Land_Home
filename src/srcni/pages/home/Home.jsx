@@ -6,14 +6,15 @@ import Chart from "../../components/chart/Chart"
 import Table from "../../components/table/Table"
 import "./home.scss"
 
-
-const Home = ({homeMode, setHomeMode }) => {
+import Banner from '../../../srcnl/partials/Banner';
+const Home = ({homeMode, setHomeMode, setLandMode }) => {
   return (
     <div className="home">
       <Sidebar/>
       <div className="homeContainer">
       <Navbar homeMode={homeMode}
-          setHomeMode={(obj) => setHomeMode(obj)}/>
+          setHomeMode={(obj) => setHomeMode(obj)}
+          setLandMode={(obj) => setLandMode(obj)}/>
       <div className="widgets">
         <Widget type="user"/>
         <Widget type="order"/>
@@ -29,6 +30,7 @@ const Home = ({homeMode, setHomeMode }) => {
         <Table/>
       </div>
       </div>
+      <Banner/>
     </div>
   )
 }
