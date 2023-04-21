@@ -1,9 +1,9 @@
 .new{
     display: flex;
     width: 100%;
-
+    flex: 6;
     .newContainer{
-        flex: 6;
+        
 
         .top, .bottom {
             -webkit-box-shadow: 2px 4px 10 px 1px rgba(0, 0, 0, 0.47);

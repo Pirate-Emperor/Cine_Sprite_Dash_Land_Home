@@ -13,15 +13,21 @@ import SucessoEmail from "./components/sucessoEmail";
 import Login from "./components/login";
 
 // srcni (Dash)
+import Sidebar from "./srcni/components/sidebar/Sidebar"
+import Navbar from "./srcni/components/navbar/Navbar"
 import Home1 from "./srcni/pages/home/Home";
+import Record from "./srcni/pages/records/Records";
 import Login1 from "./srcni/pages/login/Login";
 import List from "./srcni/pages/list/List";
+import Attempt from "./srcni/pages/attempt/Attempt";
 import Single from "./srcni/pages/single/Single";
+import SingleEngine from "./srcni/pages/single_eng/Single";
+import Title from "./srcni/pages/title/Title";
 import New from "./srcni/pages/new/New";
 import { productInputs, userInputs } from "./srcni/formSource";
 import "./srcni/style/dark.scss";
 import { DarkModeContext} from "./srcni/context/darkModeContext";
-
+import "./app1.scss";
 
 // srcnl (Land)
 
@@ -36,7 +42,8 @@ import SignIn from './srcnl/pages/SignIn';
 import SignUp from './srcnl/pages/SignUp';
 import ResetPassword from './srcnl/pages/ResetPassword';
 
-
+// srcnk (Recommender)
+import Appy from './src/App';
 // Auth
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -44,7 +51,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   const {darkMode} = useContext(DarkModeContext)
   const [homeMode, setHomeMode] = useState(true);
-  const [landMode, setLandMode] = useState(false);
+  const [landMode, setLandMode] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
@@ -66,7 +73,7 @@ function App() {
     (landMode)
     ?
     // <BrowserRouter>
-    <AuthContextProvider>
+    // <AuthContextProvider>
     <div className={darkMode ? "app dark" : "app"}>
       <Header2 darkMode={darkMode} 
           landMode={landMode}
@@ -75,38 +82,58 @@ function App() {
           setHomeMode={(obj) => setHomeMode(obj)}/>
       <Routes>
         <Route exact path="/" element={<Home2 />} />
+        <Route exact path="/insight" element={<ProtectedRoute> <Appy /> </ProtectedRoute>} /> 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
       </div>
-      </AuthContextProvider>
+      // </AuthContextProvider>
 
     :
     (!homeMode)
     ?
-    <AuthContextProvider>
+    // <AuthContextProvider>
+    
     <div  className={darkMode ? "app dark" : "app"}>
     {/* <BrowserRouter> */}
     {/* <DarkModeContextProvider> */}
+    <div className="app1">
+    <Sidebar className="side"
+    landMode={landMode}
+    setLandMode={(obj) => setLandMode(obj)}
+    homeMode={homeMode}
+    setHomeMode={(obj) => setHomeMode(obj)}/>
       <Routes>
         <Route path="/"> 
-        <Route path="dash" element={<Home1 homeMode={homeMode}
-          setHomeMode={(obj) => setHomeMode(obj)}
-          setLandMode={(obj) => setLandMode(obj)}/>} />
+        <Route path="dash" element={<ProtectedRoute><Home1 
+          landMode={landMode}
+          setLandMode={(obj) => setLandMode(obj)}
+          homeMode={homeMode}
+          setHomeMode={(obj) => setHomeMode(obj)}/> </ProtectedRoute>} /> 
+          <Route path="record" element={<Record 
+          landMode={landMode}
+          setLandMode={(obj) => setLandMode(obj)}
+          homeMode={homeMode}
+          setHomeMode={(obj) => setHomeMode(obj)}/>} />
         <Route path="login" element={<Login1/>}/>
+        <Route path="attempt" element={<Attempt homeMode={homeMode}
+          setHomeMode={(obj) => setHomeMode(obj)}/>}/>
+        <Route path="title" element={<Title homeMode={homeMode}
+          setHomeMode={(obj) => setHomeMode(obj)}/>}/>
         <Route path="users">
           <Route index element={<List homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>}/>
           <Route path=":userId" element={<Single homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>}/>
+          
           <Route path="new" element={<New inputs={userInputs} title="Add New User" homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>}/>
         </Route>
-        <Route path="products">
+        <Route path="engine">
           <Route index element={<List homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>}/>
-          <Route path=":productId" element={<Single homeMode={homeMode}
+          <Route path=":engineId" element={<SingleEngine homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>}/>
           <Route path="new" element={<New inputs={productInputs} title="Add New Product" homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>}/>
@@ -116,9 +143,11 @@ function App() {
       {/* </DarkModeContextProvider> */}
       {/* </BrowserRouter> */}
       </div>
-      </AuthContextProvider>
+      </div>
+
+      // </AuthContextProvider>
       :
-      <AuthContextProvider>
+      // <AuthContextProvider>
       <div className={darkMode ? "app dark" : "app"}>
         {/* <BrowserRouter> */}
       
@@ -146,7 +175,7 @@ function App() {
     </ThemeProvider>
     {/* </BrowserRouter> */}
     </div>
-    </AuthContextProvider>
+    // </AuthContextProvider>
   );
 }
 

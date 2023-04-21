@@ -7,7 +7,7 @@ import Table from "../../components/table/Table";
 const Single = ({homeMode, setHomeMode }) => {
   return (
     <div className="single">
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <div className="singleContainer">
         <Navbar homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>
@@ -16,21 +16,21 @@ const Single = ({homeMode, setHomeMode }) => {
             <div className="editButton">Edit</div>
             <h1 className="title">Information</h1>
             <div className="item">
-              <img src="https://images.unsplash.com/photo-1504376379689-8d54347b26c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=536&q=80" 
+              <img src="https://e1.pxfuel.com/desktop-wallpaper/686/814/desktop-wallpaper-kratos-god-of-war-ps4-kratos.jpg" 
               alt="" className="itemImg"/>
               <div className="details">
-                <h1 className="itemTitle">Jane Doe</h1>
+                <h1 className="itemTitle">Fighter</h1>
                 <div className="detailItem">
                   <span className="itemKey">Phone :</span>
-                  <span className="itemKey">+260 975 502 085</span>
+                  <span className="itemKey">+91 999 999 999</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Address :</span>
-                  <span className="itemKey">256 Collect House, Buteko Avenue , Ndola</span>
+                  <span className="itemKey">Faye's Residence, Esgilod, Sparta</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Country :</span>
-                  <span className="itemKey">Zambia</span>
+                  <span className="itemKey">Greece</span>
                 </div>
               </div>
             </div>

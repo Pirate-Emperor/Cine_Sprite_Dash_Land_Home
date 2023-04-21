@@ -19,6 +19,7 @@ function SignIn() {
     try {
       await logIn(email, password);
       navigate("/");
+      console.log(user);
     } catch (error) {
       console.log(error);
       setError(error.message);

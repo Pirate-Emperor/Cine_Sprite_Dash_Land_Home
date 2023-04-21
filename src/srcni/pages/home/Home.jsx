@@ -1,3 +1,4 @@
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import Navbar from "../../components/navbar/Navbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Widget from "../../components/widget/Widget"
@@ -5,12 +6,19 @@ import Featured from "../../components/featured/Featured"
 import Chart from "../../components/chart/Chart"
 import Table from "../../components/table/Table"
 import "./home.scss"
+import {db} from "../../../Firebase"
+
+
+
+
+
 
 import Banner from '../../../srcnl/partials/Banner';
-const Home = ({homeMode, setHomeMode, setLandMode }) => {
+const Home = ({landMode, setLandMode, homeMode, setHomeMode}) => {
+  
   return (
     <div className="home">
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <div className="homeContainer">
       <Navbar homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}

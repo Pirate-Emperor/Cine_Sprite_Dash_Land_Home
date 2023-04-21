@@ -16,6 +16,9 @@ const Navbar = ({homeMode, setHomeMode, setLandMode }) => {
   const homeClickHandler = () => {
     setHomeMode(true);
   };
+  const landClickHandler = () => {
+    setLandMode(true);
+  };
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -46,7 +49,7 @@ const Navbar = ({homeMode, setHomeMode, setLandMode }) => {
             <ListOutLinedIcon className="icon" />
           </div>
           <Link to="/home" onClick={homeClickHandler}> <div className="item" >
-           <img src="https://images.pexels.com/photos/1967902/pexels-photo-1967902.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" className="avatar"/>
+           <img src="https://e1.pxfuel.com/desktop-wallpaper/686/814/desktop-wallpaper-kratos-god-of-war-ps4-kratos.jpg" alt="" className="avatar"/>
           </div>
           </Link>
         </div>

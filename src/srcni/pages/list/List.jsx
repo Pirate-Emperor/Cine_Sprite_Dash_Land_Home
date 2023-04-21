@@ -6,7 +6,7 @@ import Datatable from "../../components/datatable/Datatable"
 const List = ({homeMode, setHomeMode }) => {
   return (
     <div className="list">
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <div className="listContainer">
         <Navbar homeMode={homeMode}
           setHomeMode={(obj) => setHomeMode(obj)}/>

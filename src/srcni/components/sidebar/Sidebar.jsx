@@ -12,13 +12,33 @@ import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import InputOutlinedIcon from '@mui/icons-material/InputOutlined';
-import {Link} from "react-router-dom";
-import { useContext} from "react";
+import {Link, useNavigate} from "react-router-dom";
+import { useContext, useEffect} from "react";
 import { DarkModeContext} from "../../context/darkModeContext";
 import logo from '../../../assets/images/main_logo.png';
-const Sidebar = () => {
+import { UserAuth } from "../../../context/AuthContext";
+const Sidebar = ({landMode, setLandMode, homeMode, setHomeMode}) => {
 
   const {dispatch} = useContext(DarkModeContext)
+  const homeClickHandler = () => {
+    setHomeMode(true);
+  };
+  const landClickHandler = () => {
+    setLandMode(true);
+  };
+
+  const { user, logOut } = UserAuth();
+    console.log(user);
+    const navigate = useNavigate();
+    const handleLogOut = async () => {
+        try {
+        await logOut();
+        landClickHandler();
+        navigate("/");
+        }catch (error) {
+        console.log(error);
+        }
+    };
 
   return (
     <div className="sidebar"> 
@@ -32,62 +52,75 @@ const Sidebar = () => {
     <div className="center">
         <ul>
            <p className="title">MAIN</p>
-          <li>
+           <Link to="/dash" style={{textDecoration: "none"}}>
+            <li>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
             </li>
-            <p className="title">LISTS</p>
+            </Link>
+            <p className="title">FEATURES</p>
             <Link to="/users" style={{textDecoration: "none"}}>
             <li>
               <PersonOutlineOutlinedIcon className="icon" />
-            <span>Users</span>
+            <span>Collaborators</span>
             </li>
             </Link>
-            <Link to="/products" style={{textDecoration: "none"}}>
+            <Link to="/title" style={{textDecoration: "none"}}>
             <li>
               <LocalMovies className="icon" />
             <span>Titles</span>
             </li>
             </Link>
+            <Link to="/attempt" style={{textDecoration: "none"}}>
             <li>
               <Engineering className="icon" />
             <span>Attempts</span>
             </li>
+            </Link>
+            <Link to="/record" style={{textDecoration: "none"}}>
             <li>
               <FiberSmartRecord className="icon" />
             <span>Records</span>
             </li>
-            <p className="title">USEFUL LINKS</p>
+            </Link>
+            <p className="title">NAVIGATION</p>
+            <Link to="/home" style={{textDecoration: "none"}} onClick={homeClickHandler}>
             <li>
               <AnalyticsIcon className="icon" />
-            <span>Stats</span>
+            <span>Home</span>
             </li>
+            </Link>
+            <Link to="/home" style={{textDecoration: "none"}} onClick={homeClickHandler}>
             <li>
               <NotificationsNoneOutlinedIcon className="icon" />
-            <span>Notifications</span>
+            <span>Viewers</span>
             </li>
-            <p className="title">SERVICE</p>
+            </Link>
+            <Link to="/home" style={{textDecoration: "none"}} onClick={homeClickHandler}>
             <li>
-              <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
+              <NotificationsNoneOutlinedIcon className="icon" />
+            <span>Genre</span>
             </li>
+            </Link>
+            <Link to="/" style={{textDecoration: "none"}} onClick={landClickHandler}>
             <li>
-              <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
+              <NotificationsNoneOutlinedIcon className="icon" />
+            <span>Land</span>
             </li>
-            <li>
-              <AccountCircleOutlinedIcon className="icon" />
-            <span>Settings</span>
-            </li>
+            </Link>
+            <Link to="/account" style={{textDecoration: "none"}} onClick={landClickHandler}>
             <p className="title">USER</p>
             <li>
               <SettingsOutlinedIcon className="icon" />
-            <span>Profile</span>
+            <span>Account</span>
             </li>
+            </Link>
+            <Link to="/" style={{textDecoration: "none"}} onClick={handleLogOut}>
             <li>
               <InputOutlinedIcon className="icon" />
             <span>Logout</span>
             </li>
+            </Link>
         </ul>
 
     </div>

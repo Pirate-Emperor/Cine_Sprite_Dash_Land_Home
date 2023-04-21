@@ -93,7 +93,7 @@ const List = () => {
             <TableCell className="tableCell" align="right">{row.id}</TableCell>
             <TableCell className="tableCell" align="right">
               <Box display="flex" alignItems="center">
-                <Avatar src={row.img} />
+                <Avatar src={process.env.PUBLIC_URL + row.img} />
                 <div style={{paddingLeft:8}}> {row.product} </div>
               </Box>
               {/* <div className="cellWrapper">

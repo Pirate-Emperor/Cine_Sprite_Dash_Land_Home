@@ -4,6 +4,7 @@ import PersonOutlineOutlined from "@mui/icons-material/PersonOutlineOutlined";
 import AccountBalanceWalletOutLinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlined from "@mui/icons-material/MonetizationOnOutlined"; 
+import {Link, useLinkClickHandler, useNavigate} from "react-router-dom";
 
 const Widget = ({ type }) => {
   let data;
@@ -21,6 +22,7 @@ switch (type) {
             diff: 13,
             isMoney: false,
             link: "See all titles",
+            path: "/title",
             icon: (
                 <PersonOutlineOutlined 
                 className="icon" 
@@ -39,6 +41,7 @@ switch (type) {
                 diff: 3,
                 isMoney: false,
                 link: "View all attempts",
+                path: "/attempt",
                 icon: (
                     <ShoppingCartOutlinedIcon className="icon" 
                     style={{
@@ -57,6 +60,7 @@ switch (type) {
                     isMoney: true,
                     text: "NET",
                     link: "View net SLR Rate",
+                    path: "/record",
                     icon: (
                         <MonetizationOnOutlined className="icon" 
                         style={{
@@ -75,6 +79,7 @@ switch (type) {
                         isMoney: true,
                         text: "CLI",
                         link: "See details",
+                        path: "/record",
                         icon: (
                             <AccountBalanceWalletOutLinedIcon className="icon" 
                             style={{
@@ -88,13 +93,16 @@ switch (type) {
                default:
                     break;
 }
-
+const navigate = useNavigate();
+const ClickHandler = async (path) => {
+    navigate(path);
+};
   return (
     <div className="widget">
       <div className="left">
             <span className="title">{data.title}</span>
             <span className="counter"> {data.amount} {data.isMoney && data.text}</span>
-            <span className="link">{data.link}</span>
+            <button className="link" onClick={()=>ClickHandler(data.path)}>{data.link}</button>
       </div>
       <div className="right">
             <div className="percentage positive">
