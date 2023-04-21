@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import ChosenWords from './components/ChosenWords';
 import RemoveWordArea from './components/RemoveWordArea';
@@ -7,8 +7,11 @@ import ChooseRandomWordsButton from './components/ChooseRandomWordsButton';
 import Category from './components/Category';
 import { wordsData } from './data/wordsData.js';
 import './App.css';
+import {db} from "../Firebase.js"
+import { collection, getDocs, addDoc } from "firebase/firestore"; 
 
 class Appy extends Component {
+  
 
   constructor(props) {
     super(props);
@@ -124,6 +127,18 @@ class Appy extends Component {
   }
 
   render() {
+    const addTodo = async (e) => {
+      e.preventDefault();  
+     
+      try {
+          const docRef = await addDoc(collection(db, "parameters"), {
+            param: "God of War",    
+          });
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", );
+        }
+  }
     return (
       <div className="App">
         <div className="h-full p-8">
@@ -139,7 +154,7 @@ class Appy extends Component {
                 <div>
                   <div className="flex flex-auto flex-row content-center">
                     <ChangeNumWordsButton diff={-1} changeNumWords={this.changeNumWords}/>
-                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={this.displayWords}/>
+                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={()=>{addTodo()}}/>
                     <ChangeNumWordsButton diff={1} changeNumWords={this.changeNumWords}/>
                   </div>
                 </div>

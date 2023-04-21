@@ -52,7 +52,7 @@ const Chart = ({aspect , title}) => {
  
     // Fetch the required data using the get() method
     const Fetchdata = async ()=>{
-        await getDocs(collection(db,"data1")).then((querySnapshot) => {
+        await getDocs(collection(db,"data2")).then((querySnapshot) => {
           const newData = querySnapshot.docs.map((doc,i) => ({...doc.data(),name:i+1}));
           setData(newData);                
           console.log(data, newData);
@@ -80,7 +80,7 @@ const Chart = ({aspect , title}) => {
   let i=12;
   // addRow(`${i+1}`,Math.floor(Math.random()*total + 1));
   return (
-    <div className='chart'>
+    <div className='chart' onClick={()=>Fetchdata()}>
       <div className="title">{title}</div>
        <ResponsiveContainer width="100%" aspect={aspect}>
             <AreaChart width={730} height={250} data={data}

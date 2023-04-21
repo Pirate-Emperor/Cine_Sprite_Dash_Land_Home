@@ -2,6 +2,7 @@ import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart" ;
+import ChartG from "../../components/chart_g/ChartG" ;
 import Table from "../../components/table/Table";
 
 const SingleEngine = ({homeMode, setHomeMode }) => {
@@ -36,7 +37,7 @@ const SingleEngine = ({homeMode, setHomeMode }) => {
             </div>
           </div>
           <div className="right">
-            <Chart aspect={3 /1} title="User Records ( Last 6 Attempts)"/>
+            <ChartG aspect={3 /1} title="User Records ( Last 6 Attempts)"/>
           </div>
         </div>
         <div className="bottom">

@@ -10,7 +10,7 @@ app = firebase_admin.initialize_app(cred)
 store = firestore.client()
 
 file_path = "data1.csv"
-collection_name = "data1"
+collection_name = "data2"
 
 
 def batch_data(iterable, n=1):

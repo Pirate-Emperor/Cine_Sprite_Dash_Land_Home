@@ -24,7 +24,7 @@ const Record = ({homeMode, setHomeMode, setLandMode }) => {
       </div> */}
       <div className="charts">
         <Featured/>
-        <Chart title="Last 6 Attempts (Clients Satisfaction)" aspect={2/1}/>
+        <Chart title="Model's Efficiency over multiple cycles" aspect={2/1}/>
       </div>
       <div className="charts">
         <ChartG title="Last 6 Attempts (Clients Satisfaction)" aspect={2/1}/>

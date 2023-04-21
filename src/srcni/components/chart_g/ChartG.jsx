@@ -9,12 +9,6 @@ const data = [
     { name: "4", Total: 1422},
     { name: "5", Total: 1493},
     { name: "6", Total: 1457},
-    { name: "7", Total: 1193},
-    { name: "8", Total: 957},
-    { name: "9", Total: 1206},
-    { name: "10", Total: 1308},
-    { name: "11", Total: 1357},
-    { name: "12", Total: 1382},
 ];
 
 const ChartG = ({aspect , title}) => {
