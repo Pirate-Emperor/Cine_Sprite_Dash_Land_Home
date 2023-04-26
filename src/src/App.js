@@ -154,7 +154,7 @@ class Appy extends Component {
                 <div>
                   <div className="flex flex-auto flex-row content-center">
                     <ChangeNumWordsButton diff={-1} changeNumWords={this.changeNumWords}/>
-                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={()=>{addTodo()}}/>
+                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={this.displayWords}/>
                     <ChangeNumWordsButton diff={1} changeNumWords={this.changeNumWords}/>
                   </div>
                 </div>
