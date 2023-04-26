@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 import { Link, useLocation, useNavigate} from 'react-router-dom';
-import { UserAuth } from "../../../context/AuthContext";
+import { UserAuth } from "../../../../../context/AuthContext";
 import './header.scss';
 
 import logo from '../../images/main_logo.png';
 
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import {db} from '../../../Firebase';
+import {db} from '../../../../../Firebase';
     
 
 const headerNav = [
@@ -21,9 +21,23 @@ const headerNav = [
     },
     {
         display: 'Home',
-        path: '/home',
+        path: '/home2',
         onClick: true,
-        handle: "home",
+        handle: "land",
+        authChange: false,
+    },
+    // {
+    //     display: 'Home',
+    //     path: '/home',
+    //     onClick: true,
+    //     handle: "home",
+    //     authChange: false,
+    // },
+    {
+        display: 'Viewers',
+        path: '/',
+        onClick: true,
+        handle: "view",
         authChange: false,
     },
     {
@@ -75,7 +89,7 @@ const headerNav = [
     }
 ];
 
-const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
+const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode, setHomeMode1, setUserMode }) => {
 
 
     const [todo, setTodo] = useState("Hello")
@@ -123,6 +137,10 @@ const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
         setHomeMode(true);
         setLandMode(false);
       };
+    const titleClickHandler = () => {
+    setHomeMode1(true);
+    setUserMode(false);
+    };
     const dashClickHandler = () => {
         // const {user} = UserAuth()
         if(user?.email){
@@ -153,6 +171,7 @@ const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
 
     const chooseHandler =(handle) => {
         if (handle==="logout") return handleLogOut
+        else if (handle==="view") return titleClickHandler
         else if (handle==="home") return homeClickHandler
         else if (handle==="dash") return dashClickHandler
         else if (handle==="land") return landClickHandler

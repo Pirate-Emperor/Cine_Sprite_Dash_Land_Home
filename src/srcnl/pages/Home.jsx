@@ -10,7 +10,7 @@ import Newsletter from '../partials/Newsletter';
 import Banner from '../partials/Banner';
 import Footer from '../partials/Footer';
 
-function Home() {
+function Home(setHomeMode,setLandMode) {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
@@ -24,7 +24,8 @@ function Home() {
         </div>
 
         {/*  Page sections */}
-        <HeroHome />
+        <HeroHome setHomeMode={(obj) => setHomeMode(obj)}
+          setLandMode={(obj) => setLandMode(obj)}/>
         <FeaturesBlocks />
         <FeaturesZigZag />
         <Testimonials />

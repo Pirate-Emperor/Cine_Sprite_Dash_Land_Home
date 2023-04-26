@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import ChosenWords from './components/ChosenWords';
 import RemoveWordArea from './components/RemoveWordArea';
@@ -7,7 +7,7 @@ import ChooseRandomWordsButton from './components/ChooseRandomWordsButton';
 import Category from './components/Category';
 import { wordsData } from './data/wordsData.js';
 import './App.css';
-import {db} from "../Firebase.js"
+import {db} from "../../../Firebase.js"
 import { collection, getDocs, addDoc } from "firebase/firestore"; 
 
 class Appy extends Component {
@@ -17,7 +17,7 @@ class Appy extends Component {
     super(props);
     this.state = { selectedWords: [], displayedWords: [], wordSelected: [], isgenre:false, isDragging: false, numWords: 1, categoriesCollapsed: false, categoriesExpanded: false };
   }
-
+  
   changeNumWords = (diff) => {
     var totalNumWords = 0;
     Object.keys(wordsData).forEach(category => totalNumWords = totalNumWords + wordsData[category].length);
@@ -125,7 +125,6 @@ class Appy extends Component {
 
     this.setState({ selectedWords: newSelectedWords, isDragging: false });
   }
-
   render() {
     const addTodo = async (e) => {
       e.preventDefault();  
@@ -154,7 +153,7 @@ class Appy extends Component {
                 <div>
                   <div className="flex flex-auto flex-row content-center">
                     <ChangeNumWordsButton diff={-1} changeNumWords={this.changeNumWords}/>
-                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={()=>{addTodo()}}/>
+                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={this.displayWords}/>
                     <ChangeNumWordsButton diff={1} changeNumWords={this.changeNumWords}/>
                   </div>
                 </div>

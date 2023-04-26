@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import PageIllustration from '../partials/PageIllustration';
 import Banner from '../partials/Banner';
 
-import { UserAuth } from "../../context/AuthContext";
+import { UserAuth } from "../../../../context/AuthContext";
 
 function SignUp() {
   const [email, setEmail] = useState("");

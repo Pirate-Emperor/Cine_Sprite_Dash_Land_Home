@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Modal from '../utils/Modal';
-
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import HeroImage from '../images/hero-image-02.jpg';
 
-function HeroHome() {
+function HeroHome(setHomeMode,setLandMode) {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
-
+  const dashClickHandler = () => {
+    setHomeMode(false);
+    setLandMode(false);
+  };
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
@@ -44,14 +47,18 @@ function HeroHome() {
             </p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
-                <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">
-                  Start free trial
+                <Link to="/insight">
+                <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0">
+                  Try Cine Engine
                 </a>
+                </Link>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
-                <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">
+                <Link to="/dash" onClick={dashClickHandler}>
+                <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4">
                   Check Dataset
                 </a>
+                </Link>
               </div>
             </div>
           </div>

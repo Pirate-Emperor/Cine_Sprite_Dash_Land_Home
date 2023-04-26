@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./chart.scss"
 import { AreaChart, Area, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import {db} from "../../../Firebase.js"
+import {db} from "../../../../../Firebase.js"
 import { collection, getDocs } from "firebase/firestore"; 
 
 const Chart = ({aspect , title}) => {

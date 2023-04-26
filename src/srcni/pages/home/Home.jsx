@@ -6,7 +6,7 @@ import Featured from "../../components/featured/Featured"
 import Chart from "../../components/chart/Chart"
 import Table from "../../components/table/Table"
 import "./home.scss"
-import {db} from "../../../Firebase"
+import {db} from "../../../../../Firebase"
 
 
 

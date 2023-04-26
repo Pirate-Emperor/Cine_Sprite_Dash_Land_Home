@@ -16,8 +16,8 @@ import {Link, useNavigate} from "react-router-dom";
 import { useContext, useEffect} from "react";
 import { DarkModeContext} from "../../context/darkModeContext";
 import logo from '../../../assets/images/main_logo.png';
-import { UserAuth } from "../../../context/AuthContext";
-const Sidebar = ({landMode, setLandMode, homeMode, setHomeMode}) => {
+import { UserAuth } from "../../../../../context/AuthContext";
+const Sidebar = ({landMode, setLandMode, homeMode, setHomeMode,setHomeMode1,setUserMode}) => {
 
   const {dispatch} = useContext(DarkModeContext)
   const homeClickHandler = () => {
@@ -26,7 +26,10 @@ const Sidebar = ({landMode, setLandMode, homeMode, setHomeMode}) => {
   const landClickHandler = () => {
     setLandMode(true);
   };
-
+  const titleClickHandler = () => {
+    setUserMode(false);
+    setHomeMode1(true);
+  };
   const { user, logOut } = UserAuth();
     console.log(user);
     const navigate = useNavigate();
@@ -90,7 +93,7 @@ const Sidebar = ({landMode, setLandMode, homeMode, setHomeMode}) => {
             <span>Home</span>
             </li>
             </Link>
-            <Link to="/home" style={{textDecoration: "none"}} onClick={homeClickHandler}>
+            <Link to="/" style={{textDecoration: "none"}} onClick={titleClickHandler}>
             <li>
               <NotificationsNoneOutlinedIcon className="icon" />
             <span>Viewers</span>
