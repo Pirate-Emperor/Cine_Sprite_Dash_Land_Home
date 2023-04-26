@@ -127,18 +127,18 @@ class Appy extends Component {
   }
 
   render() {
-    const addTodo = async (e) => {
-      e.preventDefault();  
+  //   const addTodo = async (e) => {
+  //     e.preventDefault();  
      
-      try {
-          const docRef = await addDoc(collection(db, "parameters"), {
-            param: "God of War",    
-          });
-          console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-          console.error("Error adding document: ", );
-        }
-  }
+  //     try {
+  //         const docRef = await addDoc(collection(db, "parameters"), {
+  //           param: "God of War",    
+  //         });
+  //         console.log("Document written with ID: ", docRef.id);
+  //       } catch (e) {
+  //         console.error("Error adding document: ", );
+  //       }
+  // }
     return (
       <div className="App">
         <div className="h-full p-8">
@@ -154,7 +154,7 @@ class Appy extends Component {
                 <div>
                   <div className="flex flex-auto flex-row content-center">
                     <ChangeNumWordsButton diff={-1} changeNumWords={this.changeNumWords}/>
-                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={()=>{addTodo()}}/>
+                    <ChooseRandomWordsButton numWords={this.state.numWords} onClick={this.displayWords}/>
                     <ChangeNumWordsButton diff={1} changeNumWords={this.changeNumWords}/>
                   </div>
                 </div>
