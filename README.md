@@ -1,62 +1,6 @@
-<h1 align="center">
-Bookmark landing page
+According to the Journal of Cultural Economics (2022), attendance frequency per capita found to be 3.89 in the year 2022 which had a decline of 1.90 since 2005 despite having doubled the number of titles produced which forces us to ponder on the quality of the titles produced in the current generation. Hence, in order to prevent redundancy of titles and user-based title production this project has been started. In other words, our main aim is to satisfy customers’ needs and provide them with content of the utmost quality. 
 
-<h3 align="center">
-ReactJS Responsivo + Styled Components e Rotas.
+In order to aid the everyone, we created a website called Cine Sprite, which is a Movie Database and Recommendation-Insight Generator System (MDRIGS), created for the specific purpose of generating and providing new title ideas to the producers by incorporating viewer’s data into the title-generator model. In fact, various OTT sites have already incorporated user-based title production but not all the entertainment industry has adopted this approach and so the purpose of the project is to spread this approach around the globe, specifically India, as the latter has the highest number of titles production than any countries.
 
-### Projeto Design GERAL ⬇️
+Secondary Feature would be the ability to view basic information about titles (including movies, web series, anime) such as box office collection, popularity, casting, trailers, ratings etc., which helps in getting user’s habitual actions to improve model’s efficiency. It is designed as a one-stop destination for the user to access the titles that are Upcoming, Popular, Trending or Recommended. 
 
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/desktop-preview.jpg)
-
-### Projeto Design HOME ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/home.png)
-
-### Projeto Design CARDS ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/cards.png)
-
-### Projeto Design FEATURES ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/features.png)
-
-
-### Projeto Design PERGUNTAS ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/perguntas.png)
-
-### Projeto Design CONTATO E-MAIL ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/contato.png)
-
-
-### Projeto Design ENVIO DO E-MAIL COM SUCESSO ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/emailSucesso.png)
-
-### Projeto Design CRIAR CONTA ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/criarConta.png)
-
-### Projeto Design LOGIN CONTA ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/login.png)
-
-
-### Projeto Design MENU MOBILE ⬇️
-
-![image](https://raw.githubusercontent.com/techjuliana/Bookmark-landing-page/main/design/menuMobile.png)
-
-### `npm start`
-
-## Tech Juliana
-
-<a href="https://www.linkedin.com/in/techjuliana">
- <sub><b>Juliana Bitencourt</b></sub></a>  <a href="https://www.linkedin.com/in/techjuliana" title="LinkedIn">🚀</a>
-
-Elaborado por Juliana Bitencourt
-<br> Entre em contato!👋🏽 </br>
-
- <div> 
-  <a href="https://www.linkedin.com/in/techjuliana" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-</div>
