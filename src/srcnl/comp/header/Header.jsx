@@ -125,13 +125,13 @@ const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
       };
     const dashClickHandler = () => {
         // const {user} = UserAuth()
-        if(user?.email){
+        // if(user?.email){
             setHomeMode(false);
             setLandMode(false);
             
-        }else{
-            setLandMode(true);
-        }
+        // }else{
+        //     setLandMode(true);
+        // }
         
       };  
     const landClickHandler = () => {
@@ -192,7 +192,7 @@ const Header = ({darkMode, landMode, setLandMode, homeMode, setHomeMode }) => {
                             (!e.authChange)?
                             (e.handle==="dash")?
                             <li key={i} className={`${i === active ? 'active' : ''}`}>
-                                <Link to={(user?.email)?e.path:"/"} onClick={chooseHandler(e.handle)}>
+                                <Link to={(user?.email)?e.path:"/dash"} onClick={chooseHandler(e.handle)}>
                                     {e.display}
                                 </Link>
                             </li>

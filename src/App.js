@@ -82,7 +82,7 @@ function App() {
           setHomeMode={(obj) => setHomeMode(obj)}/>
       <Routes>
         <Route exact path="/" element={<Home2 />} />
-        <Route exact path="/insight" element={<ProtectedRoute> <Appy /> </ProtectedRoute>} /> 
+        <Route exact path="/insight" element={ <Appy />} /> 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
@@ -106,11 +106,11 @@ function App() {
     setHomeMode={(obj) => setHomeMode(obj)}/>
       <Routes>
         <Route path="/"> 
-        <Route path="dash" element={<ProtectedRoute><Home1 
+        <Route path="dash" element={<Home1 
           landMode={landMode}
           setLandMode={(obj) => setLandMode(obj)}
           homeMode={homeMode}
-          setHomeMode={(obj) => setHomeMode(obj)}/> </ProtectedRoute>} /> 
+          setHomeMode={(obj) => setHomeMode(obj)}/>} /> 
           <Route path="record" element={<Record 
           landMode={landMode}
           setLandMode={(obj) => setLandMode(obj)}
