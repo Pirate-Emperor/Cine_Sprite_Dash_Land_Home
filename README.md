@@ -1,5 +1,5 @@
 # Cine_Sprite_Dash_Land_Home
-
+![CineSprite](public/assets/images/cinesprite.png)
 Developed by Pirate-Emperor, Cine_Sprite_Dash_Land_Home is a web-based dashboard application built using ReactJS. It provides movie producers with data-driven insights, recommendations for movie ideas, assistance in structuring movies, and integrates with IMDB API for fetching movie details.
 
 ## Abstract
