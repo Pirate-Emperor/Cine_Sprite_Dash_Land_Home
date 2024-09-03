@@ -20,6 +20,15 @@ Secondary Feature would be the ability to view basic information about titles (i
 - **Web Automation**: Gathers data and information through web automation techniques for content not available in the API.
 - **Responsive Design**: Ensures a seamless user experience across various devices and screen sizes.
 
+## Screenshots
+![screenshot1](public/1.png)
+![screenshot2](public/2.png)
+![screenshot3](public/3.png)
+![screenshot4](public/4.png)
+![screenshot5](public/5.png)
+![screenshot6](public/6.png)
+![screenshot7](public/7.png)
+
 ## Prerequisites
 
 To run the project, you'll need:
